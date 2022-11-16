@@ -1,0 +1,152 @@
+@use '../utils/index' as *;
+
+body {
+	// Just to center container in the viewport
+	display: flex;
+	justify-content: center;
+}
+
+.social-proof {
+	max-width: 35rem;
+	box-sizing: border-box;
+	background-color: $white;
+	padding: 3rem;
+
+	font-family: $league-spartan;
+	font-size: $base-font-size;
+	font-weight: $regular-font-weight;
+
+	@include flex-column;
+	gap: 4rem;
+
+	@include desktop-version {
+		max-width: 120rem;
+		// Just to center container in the viewport
+		margin-top: 10rem;
+	}
+
+	&__introduction {
+		text-align: center;
+		@include desktop-version {
+			@include flex-row;
+			justify-content: space-between;
+			text-align: start;
+
+			&-text-container {
+				flex-basis: 33%;
+			}
+		}
+
+		&-heading {
+			font-size: $title-font-size;
+			font-weight: $bold-font-weight;
+			color: $very-dark-magenta;
+			line-height: 0.75;
+			letter-spacing: -1px;
+
+			@include desktop-version {
+				margin-right: 13rem;
+			}
+		}
+		&-sentence {
+			color: $dark-grayish-magenta;
+			font-weight: $medium-font-weight;
+		}
+
+		&-ratings {
+			@include flex-column;
+			gap: 2rem;
+			@include desktop-version {
+				margin-top: 5rem;
+			}
+		}
+
+		&-rating {
+			background-color: lighten($dark-grayish-magenta, 40);
+			padding: 1rem;
+			border-radius: 0.5rem;
+			@include flex-column;
+			gap: 1rem;
+			@include desktop-version {
+				padding: 1.5rem 3rem;
+				@include flex-row;
+				justify-content: flex-start;
+				gap: 3rem;
+
+				&:first-child {
+					transform: translateX(-20rem);
+				}
+				&:nth-child(2) {
+					transform: translateX(-10rem);
+				}
+			}
+
+			&-stars-container {
+				@include flex-row;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			&-company {
+				margin: 0;
+				color: $very-dark-magenta;
+				font-weight: $bold-font-weight;
+				@include desktop-version {
+					margin-top: 3px;
+				}
+			}
+		}
+	}
+
+	&__reviews {
+		@include flex-column;
+		gap: 2rem;
+		@include desktop-version {
+			@include flex-row;
+		}
+	}
+	&__review {
+		background-color: $very-dark-magenta;
+		border-radius: 0.5rem;
+		padding: 3rem;
+		color: $white;
+		@include flex-column;
+		gap: 1rem;
+
+		@include desktop-version {
+			&:nth-child(2) {
+				transform: translateY(2.5rem);
+			}
+			&:nth-child(3) {
+				transform: translateY(5rem);
+			}
+		}
+
+		&-author {
+			@include flex-row;
+			align-items: center;
+			gap: 2rem;
+			&-photo {
+				border-radius: 100%;
+				width: 4rem;
+				height: 4rem;
+			}
+			&-name {
+				font-weight: $bold-font-weight;
+			}
+			&-type {
+				display: block;
+				color: $soft-pink;
+				font-weight: $medium-font-weight;
+			}
+		}
+		&-quote {
+			font-weight: $regular-font-weight;
+			&::before {
+				content: open-quote;
+			}
+			&::after {
+				content: close-quote;
+			}
+		}
+	}
+}
