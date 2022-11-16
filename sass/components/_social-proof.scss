@@ -83,6 +83,7 @@ body {
 
 			&-stars-container {
 				@include flex-row;
+				justify-content: center;
 				align-items: center;
 				gap: 0.5rem;
 			}
